@@ -15,8 +15,8 @@
     "sloyd",
     "claude-skill"
   ],
-  "author": "Martin Truong <martin@sloyd.ai> (Sloyd AS, https://www.sloyd.ai)",
-  "license": "SEE LICENSE IN LICENSE",
+  "author": "Martin Truong <martin@sloyd.ai> (https://www.sloyd.ai)",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "clipper-lib": "^6.4.2",

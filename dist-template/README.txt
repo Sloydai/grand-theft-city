@@ -1,5 +1,5 @@
 GRAND THEFT OSLO
-Created by Martin Truong · Sloyd AS
+Created by Martin Truong
 A GTA-style browser game in real central Oslo, with a flying Tesla Roadster.
 
 HOW TO PLAY

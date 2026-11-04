@@ -30,6 +30,15 @@ node tools/serve.mjs 8777
 
 Open http://localhost:8777 and click to play. A desktop browser with a graphics card works best.
 
+## Cities
+
+| City | Play | Status | Map data | Built by |
+|---|---|---|---|---|
+| Oslo, Norway | `bash tools/get-city-data.sh oslo` | playable | OpenStreetMap, Kartverket elevation, NVDB road detail, Oslo Bysykkel | Martin Truong |
+
+Built a city? Add a row (and its `cities/<id>/city.json`) in a pull request, with your name, and
+publish its data with `tools/release-city-data.sh`.
+
 ## Make your own city
 
 ### With an AI agent (Claude Code)
@@ -139,12 +148,11 @@ Making new models from text prompts with the Sloyd API: put your keys in `.env` 
 
 ## Licence and credits
 
-Code and models: MIT with an attribution requirement (see [LICENSE](LICENSE)). Every copy or
-game built with it must keep the on-screen credit "Created by Martin Truong" (bottom-right); to
-remove or change it, ask Martin Truong first at martin@sloyd.ai. Third-party code, the map data
-sources you must credit when sharing a built city, and trademarks are listed in
+MIT (see [LICENSE](LICENSE)), © 2026 Martin Truong and Grand Theft City contributors. The game
+shows who started it in the corner; please keep that credit in what you build. Third-party code,
+the map data sources you must credit when sharing a built city, and trademarks are listed in
 [NOTICE.md](NOTICE.md).
 
 Map data © OpenStreetMap contributors (ODbL). A fan-made game, not affiliated with Rockstar
-Games or Tesla, Inc. Inspired by Lasse Saari's GTA-style Helsinki and built on ideas from
-[Worldhood](https://github.com/worldhood/worldhood).
+Games or Tesla, Inc. Inspired by [Lasse Saari](https://www.linkedin.com/in/lassesaari/)'s
+Helsinki and built on ideas from his [Worldhood](https://github.com/worldhood/worldhood).

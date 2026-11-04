@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "The build-city skill: makes a GTA-style browser game of any real city from OpenStreetMap, with the Grand Theft City repo.",
   "author": {
-    "name": "Martin Truong (Sloyd AS)",
+    "name": "Martin Truong",
     "email": "martin@sloyd.ai",
     "url": "https://www.sloyd.ai"
   },
   "homepage": "https://github.com/Sloydai/grand-theft-city",
   "repository": "https://github.com/Sloydai/grand-theft-city",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "keywords": [
     "game",
     "city",

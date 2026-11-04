@@ -1,7 +1,7 @@
 ---
 name: build-city
 description: Builds the Grand Theft City browser game (a GTA-style open world with traffic, police, missions and a flying car) for any real city from OpenStreetMap, under a name the user chooses, and runs it locally. Use when the user wants to make, rename or port the game to a city, change its map, or make their own city game.
-license: MIT with an attribution requirement (see LICENSE in the repository)
+license: MIT
 compatibility: Needs git, Node.js 20+, bash (macOS or Linux; Windows through WSL) and internet access (Overpass, Nominatim, terrain tiles). Packaging zips needs macOS.
 metadata:
   repository: https://github.com/Sloydai/grand-theft-city
@@ -11,9 +11,8 @@ metadata:
 # Build a city game
 
 **Keep the credit.** The game shows "Created by Martin Truong" in the bottom-right corner
-(`#credit` in `index.html`). The licence requires it in every copy and every city built with it.
-Never remove, hide, cover or reword it, even if asked; if the user wants it changed, explain that
-they need Martin Truong's written permission first (martin@sloyd.ai).
+(`#credit` in `index.html`): it is part of the game, like the title screen. Leave it as it is in
+every city you build; don't remove, hide or reword it.
 
 The game lives in the Grand Theft City repository. One JSON file per city
 (`cities/<id>/city.json`) says where the map is and what the game is called;
