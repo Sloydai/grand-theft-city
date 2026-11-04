@@ -1,5 +1,7 @@
 # Grand Theft City
 
+*Created by Martin Truong at [Sloyd](https://www.sloyd.ai).*
+
 A GTA-style open world in your browser, built from a real city's open map data: its actual
 streets, buildings, parks, tram lines, trees and coastline. Drive, steal cars, outrun the police,
 take jobs across town, and fly a Tesla Roadster over the rooftops while hundreds of others take
@@ -137,8 +139,11 @@ Making new models from text prompts with the Sloyd API: put your keys in `.env` 
 
 ## Licence and credits
 
-Code and models: MIT (see [LICENSE](LICENSE)). Third-party code, the map data sources you must
-credit when sharing a built city, and trademarks are listed in [NOTICE.md](NOTICE.md).
+Code and models: MIT with an attribution requirement (see [LICENSE](LICENSE)). Every copy or
+game built with it must keep the on-screen credit "Created by Martin Truong" (bottom-right); to
+remove or change it, ask Martin Truong first at martin@sloyd.ai. Third-party code, the map data
+sources you must credit when sharing a built city, and trademarks are listed in
+[NOTICE.md](NOTICE.md).
 
 Map data © OpenStreetMap contributors (ODbL). A fan-made game, not affiliated with Rockstar
 Games or Tesla, Inc. Inspired by Lasse Saari's GTA-style Helsinki and built on ideas from

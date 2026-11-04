@@ -1,5 +1,8 @@
 GRAND THEFT OSLO: CREDITS AND LICENSES
 
+Created by Martin Truong. © 2026 Sloyd AS. The on-screen credit "Created by Martin Truong"
+must stay visible; to remove or change it, ask first: martin@sloyd.ai.
+
 DATA
 - Map data © OpenStreetMap contributors, available under the Open Database License (ODbL).
   Buildings, streets, parks, trees, coastline, tram and bus routes and stops.

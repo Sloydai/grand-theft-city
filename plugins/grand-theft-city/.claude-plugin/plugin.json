@@ -2,9 +2,19 @@
   "name": "grand-theft-city",
   "version": "1.0.0",
   "description": "The build-city skill: makes a GTA-style browser game of any real city from OpenStreetMap, with the Grand Theft City repo.",
-  "author": { "name": "Sloyd", "url": "https://www.sloyd.ai" },
+  "author": {
+    "name": "Martin Truong (Sloyd AS)",
+    "email": "martin@sloyd.ai",
+    "url": "https://www.sloyd.ai"
+  },
   "homepage": "https://github.com/Sloydai/grand-theft-city",
   "repository": "https://github.com/Sloydai/grand-theft-city",
-  "license": "MIT",
-  "keywords": ["game", "city", "openstreetmap", "three.js", "sloyd"]
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "game",
+    "city",
+    "openstreetmap",
+    "three.js",
+    "sloyd"
+  ]
 }

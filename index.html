@@ -43,6 +43,8 @@
   #start .go { margin-top: 28px; font-size: 26px; animation: pulse 1.2s infinite; }
   @keyframes pulse { 50% { opacity: 0.35; } }
   #loading { font-family: Arial, sans-serif; margin-top: 20px; color: #aaa; }
+  /* The author's credit, required by the licence (LICENSE): keep it visible. */
+  #credit { position: fixed; right: 14px; bottom: 7px; z-index: 1000; pointer-events: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.62); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55); }
 </style>
 </head>
 <body>
@@ -61,6 +63,7 @@
 <div class="hud" id="timer"></div>
 <div class="hud" id="big"></div>
 <div class="hud" id="toast"></div>
+<div id="credit">Created by Martin Truong</div>
 <div class="hud" id="crosshair"></div>
 <div id="start">
   <h1>GRAND THEFT<br /><span>OSLO</span></h1>

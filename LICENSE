@@ -1,6 +1,7 @@
-MIT License
+MIT License, with an attribution requirement
 
-Copyright (c) 2026 Sloyd
+Copyright (c) 2026 Sloyd AS
+Created by Martin Truong
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -11,6 +12,14 @@ furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
+
+Attribution: every copy, modified version or derivative work of the Software
+that is run, displayed, published or distributed (including games built with it
+for other cities) must show the credit "Created by Martin Truong" on screen
+whenever it runs, legibly and without hiding or covering it (the original shows
+it in the bottom-right corner). Removing, hiding or changing this credit requires
+prior written permission from Martin Truong, requested by email to
+martin@sloyd.ai.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
