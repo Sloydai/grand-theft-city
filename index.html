@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Grand Theft Oslo</title>
+<meta name="default-city" content="oslo" />
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: 'Arial Black', Impact, sans-serif; user-select: none; }
+  canvas#game { display: block; }
+  .hud { position: fixed; pointer-events: none; color: #fff; text-shadow: 2px 2px 0 #000, -1px -1px 0 #000; }
+  #topright { top: 18px; right: 24px; text-align: right; }
+  #cash { font-size: 34px; color: #7ed957; letter-spacing: 1px; }
+  #stars { font-size: 30px; letter-spacing: 2px; margin-top: 2px; }
+  #stars .on { color: #fff; }
+  #stars .off { color: rgba(255,255,255,0.18); }
+  #stars.flash .on { animation: flash 0.5s steps(2) infinite; }
+  @keyframes flash { 50% { color: rgba(255,255,255,0.25); } }
+  #clock { font-size: 24px; margin-top: 6px; }
+  #healthbar { width: 220px; height: 12px; background: rgba(0,0,0,0.6); border: 2px solid #000; margin: 6px 0 0 auto; }
+  #health-fill { height: 100%; width: 100%; background: #5cbf3f; transition: width 0.2s; }
+  #minimap-wrap { left: 24px; bottom: 24px; width: 230px; height: 230px; border-radius: 50%; overflow: hidden; border: 4px solid rgba(0,0,0,0.85); box-shadow: 0 0 0 2px rgba(255,255,255,0.4); }
+  #street { left: 270px; bottom: 34px; font-size: 26px; opacity: 0; transition: opacity 0.6s; }
+  #street small { display: block; font-size: 15px; color: #f2d16b; }
+  #speed { right: 30px; bottom: 26px; font-size: 40px; }
+  #speed small { font-size: 16px; }
+  #objective { top: 18px; left: 50%; transform: translateX(-50%); font-family: Arial, sans-serif; font-weight: bold; font-size: 19px; background: rgba(0,0,0,0.55); padding: 8px 16px; border-radius: 4px; text-shadow: none; max-width: 60vw; text-align: center; }
+  #objective:empty { display: none; }
+  #objective b { color: #f2d16b; }
+  #timer { top: 64px; left: 50%; transform: translateX(-50%); font-size: 30px; }
+  #big { top: 40%; left: 50%; transform: translate(-50%, -50%); font-size: 96px; letter-spacing: 4px; opacity: 0; transition: opacity 0.5s; text-shadow: 4px 4px 0 #000; }
+  #toast { bottom: 290px; left: 24px; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; background: rgba(0,0,0,0.65); padding: 10px 14px; border-radius: 4px; max-width: 320px; opacity: 0; transition: opacity 0.4s; text-shadow: none; }
+  #crosshair { top: 50%; left: 50%; width: 22px; height: 22px; transform: translate(-50%, -50%); }
+  #crosshair::before, #crosshair::after { content: ''; position: absolute; background: #fff; box-shadow: 0 0 2px #000; }
+  #crosshair::before { left: 10px; top: 0; width: 2px; height: 22px; }
+  #crosshair::after { top: 10px; left: 0; height: 2px; width: 22px; }
+  #hurt { inset: 0; background: radial-gradient(ellipse at center, transparent 50%, rgba(200,0,0,0.6)); opacity: 0; transition: opacity 0.3s; }
+  #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, rgba(20,30,50,0.75), rgba(0,0,0,0.92)); color: #fff; cursor: pointer; z-index: 10; }
+  #start h1 { font-size: 84px; margin: 0; line-height: 0.95; text-align: center; color: #fff; text-shadow: 5px 5px 0 #c0392b, 10px 10px 0 #000; letter-spacing: 2px; }
+  #start h1 span { color: #f2d16b; }
+  #start .sub { font-family: Arial, sans-serif; margin: 18px 0 26px; color: #ccc; }
+  #start table { font-family: Arial, sans-serif; font-size: 15px; border-spacing: 18px 5px; }
+  #start td:first-child { text-align: right; color: #f2d16b; font-weight: bold; }
+  #start .go { margin-top: 28px; font-size: 26px; animation: pulse 1.2s infinite; }
+  @keyframes pulse { 50% { opacity: 0.35; } }
+  #loading { font-family: Arial, sans-serif; margin-top: 20px; color: #aaa; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div class="hud" id="hurt"></div>
+<div class="hud" id="topright">
+  <div id="cash">$00000000</div>
+  <div id="stars"></div>
+  <div id="healthbar"><div id="health-fill"></div></div>
+  <div id="clock">16:30</div>
+</div>
+<div class="hud" id="minimap-wrap"><canvas id="minimap" width="230" height="230"></canvas></div>
+<div class="hud" id="street"></div>
+<div class="hud" id="speed"></div>
+<div class="hud" id="objective"></div>
+<div class="hud" id="timer"></div>
+<div class="hud" id="big"></div>
+<div class="hud" id="toast"></div>
+<div class="hud" id="crosshair"></div>
+<div id="start">
+  <h1>GRAND THEFT<br /><span>OSLO</span></h1>
+  <div class="sub">Real streets and buildings of Oslo sentrum from OpenStreetMap</div>
+  <table>
+    <tr><td>WASD</td><td>Move / drive</td></tr>
+    <tr><td>Mouse</td><td>Look around</td></tr>
+    <tr><td>Click</td><td>Shoot (on foot)</td></tr>
+    <tr><td>F</td><td>Enter / steal / exit car</td></tr>
+    <tr><td>Shift</td><td>Sprint / Roadster thrusters</td></tr>
+    <tr><td>G</td><td>Fly / land (Tesla Roadster)</td></tr>
+    <tr><td>Space / C</td><td>Climb / descend (flying)</td></tr>
+    <tr><td>Space</td><td>Jump / handbrake</td></tr>
+    <tr><td>H</td><td>Horn</td></tr>
+    <tr><td>M</td><td>Toggle sound</td></tr>
+    <tr><td>T</td><td>Skip two hours</td></tr>
+  </table>
+  <div class="go" id="go">CLICK TO PLAY</div>
+  <div id="loading">Loading the city…</div>
+</div>
+<script type="importmap">{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }</script>
+<script type="module" src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html><html><body style="margin:0;background:#fff">
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+// Reference shots of the game's own procedural car (?kind=sedan&view=front|left|back|right),
+// on white, for Sloyd's image-to-3D (tools/sloyd-generate.mjs).
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { buildCar, BODY_STYLES, loadSloydCars } from '/cars.js';
+const q = new URLSearchParams(location.search);
+// ?sloyd=1 shows the vehicle as the game builds it (Sloyd body, glass, lamps), for auditing.
+if (q.get('sloyd')) await loadSloydCars();
+const kind = q.get('kind') || 'sedan', view = q.get('view') || 'front';
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xffffff);
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment()).texture;
+const sun = new THREE.DirectionalLight(0xffffff, 1.6); sun.position.set(4, 8, 6); scene.add(sun);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xdddddd, 1.0));
+const colours = { bus: 0xd6231e, police: 0xf4f4f4, sedan: 0x1f3a93, sports: 0xc8102e, suv: 0x2c3e50, taxi: 0x141414, van: 0xecf0f1, wagon: 0x5d6d7e };
+const car = buildCar(kind, colours[kind] ?? 0x888888);
+car.shadow.visible = false;
+scene.add(car.group);
+const s = BODY_STYLES[kind], d = Math.max(s.len, 3) * (q.get('near') ? 1.2 : 2.4), h = s.height / 2;
+// Front: three-quarter from the front left; the others straight on.
+const at = { rear3: [-d * 0.55, h + 0.6, -d * 0.8], ahead: [0, h, d], back: [0, h, -d], front: [d * 0.55, h + 0.6, d * 0.8], left: [d, h, 0], right: [-d, h, 0] }[view];
+const camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 200);
+camera.position.set(...at); camera.lookAt(0, h * 0.9, 0);
+renderer.render(scene, camera);
+window.ready = true;
+</script></body></html>

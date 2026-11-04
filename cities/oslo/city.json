@@ -1,0 +1,12 @@
+{
+  "name": "Oslo",
+  "box": { "minLat": 59.885, "minLon": 10.7, "maxLat": 59.942, "maxLon": 10.79 },
+  "origin": { "lat": 59.9118, "lon": 10.745 },
+  "centre": { "lat": 59.912569, "lon": 10.745717 },
+  "spawn": { "lat": 59.911524, "lon": 10.750202, "face": { "lat": 59.911149, "lon": 10.750316 } },
+  "station": { "lat": 59.91085, "lon": 10.754318 },
+  "focus": { "minLat": 59.9015, "minLon": 10.732, "maxLat": 59.9135, "maxLon": 10.768 },
+  "elevation": "kartverket",
+  "nvdb": true,
+  "gbfs": "https://gbfs.urbansharing.com/oslobysykkel.no"
+}

@@ -1,0 +1,35 @@
+<!doctype html><html><body style="margin:0;background:#20242a">
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+// The Roadster from four sides, thrusters firing: /tools/roadster-preview.html?fire=1
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { buildRoadster } from '/roadster.js';
+const q = new URLSearchParams(location.search), fire = q.get('fire') === '1';
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment()).texture;
+scene.background = new THREE.Color(0x30353c);
+const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.position.set(4, 9, 6); scene.add(sun);
+scene.add(new THREE.HemisphereLight(0xdfe7ee, 0x404040, 0.6));
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({ color: 0x4a4e52, roughness: 0.9 })); floor.rotation.x = -Math.PI / 2; scene.add(floor);
+const car = buildRoadster();
+scene.add(car.group);
+car.shadow.layers.set(1);
+car.roadster.setDriver(true);
+for (let i = 0; i < 60; i++) car.roadster.update(1 / 30, fire ? { boost: 1, fan: 1, lift: 1, side: 0.6, wing: 1 } : { wing: q.get('wing') ? +q.get('wing') : 0 });
+const views = (q.get('views') || '6,2.2,6;0,1.4,-7;7,1.2,0;0,1.6,8').split(';').map((v) => v.split(',').map(Number));
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 200);
+const cols = 2, rows = Math.ceil(views.length / cols), w = innerWidth / cols, h = innerHeight / rows;
+views.forEach((v, i) => {
+  const x = (i % cols) * w, y = innerHeight - (Math.floor(i / cols) + 1) * h;
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+  camera.position.set(...v); camera.lookAt(0, 0.55, 0);
+  renderer.setViewport(x, y, w, h); renderer.setScissor(x, y, w, h);
+  renderer.render(scene, camera);
+});
+document.title = 'ready';
+</script></body></html>

@@ -1,0 +1,74 @@
+[
+ {
+  "name": "cars/sedan",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/sedan-ahead.jpg",
+   "left": "models/refs/sedan-left.jpg",
+   "back": "models/refs/sedan-back.jpg"
+  }
+ },
+ {
+  "name": "cars/suv",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/suv-ahead.jpg",
+   "left": "models/refs/suv-left.jpg",
+   "back": "models/refs/suv-back.jpg"
+  }
+ },
+ {
+  "name": "cars/taxi",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/taxi-ahead.jpg",
+   "left": "models/refs/taxi-left.jpg",
+   "back": "models/refs/taxi-back.jpg"
+  }
+ },
+ {
+  "name": "cars/van",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/van-ahead.jpg",
+   "left": "models/refs/van-left.jpg",
+   "back": "models/refs/van-back.jpg"
+  }
+ },
+ {
+  "name": "cars/police",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/police-ahead.jpg",
+   "left": "models/refs/police-left.jpg",
+   "back": "models/refs/police-back.jpg"
+  }
+ },
+ {
+  "name": "cars/sports",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/sports-ahead.jpg",
+   "left": "models/refs/sports-left.jpg",
+   "back": "models/refs/sports-back.jpg"
+  }
+ },
+ {
+  "name": "cars/wagon",
+  "faces": 60000,
+  "images": {
+   "front": "models/refs/wagon-ahead.jpg",
+   "left": "models/refs/wagon-left.jpg",
+   "back": "models/refs/wagon-back.jpg"
+  }
+ },
+ {
+  "name": "cars/bus",
+  "faces": 80000,
+  "images": {
+   "front": "models/refs/bus-ahead.jpg",
+   "left": "models/refs/bus-left.jpg",
+   "back": "models/refs/bus-back.jpg"
+  }
+ }
+]

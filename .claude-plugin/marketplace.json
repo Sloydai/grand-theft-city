@@ -1,0 +1,12 @@
+{
+  "name": "grand-theft-city",
+  "description": "Make a GTA-style browser game of any real city, from OpenStreetMap, three.js and Sloyd models.",
+  "owner": { "name": "Sloyd", "url": "https://www.sloyd.ai" },
+  "plugins": [
+    {
+      "name": "grand-theft-city",
+      "source": "./plugins/grand-theft-city",
+      "description": "The build-city skill: pick a city and a name, and it builds the game's map and runs it."
+    }
+  ]
+}

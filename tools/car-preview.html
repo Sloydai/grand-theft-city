@@ -1,0 +1,23 @@
+<!doctype html><html><body style="margin:0;background:#cfd6dc">
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+// Preview of the Sloyd car models in models/cars/ (four in a row, three-quarter view).
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment()).texture;
+scene.background = new THREE.Color(0xcfd6dc);
+const sun = new THREE.DirectionalLight(0xffffff, 2); sun.position.set(5, 10, 6); scene.add(sun);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({ color: 0x555a5e, roughness: 0.9 })); floor.rotation.x = -Math.PI / 2; scene.add(floor);
+const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 200);
+const cam = (new URLSearchParams(location.search).get("cam") || "6,3.2,13").split(",").map(Number); camera.position.set(...cam); camera.lookAt(0, 0.7, 0);
+const dir = new URLSearchParams(location.search).get('dir') || 'cars', names = (new URLSearchParams(location.search).get('names') || 'sedan,suv,taxi,van').split(','), loader = new GLTFLoader();
+await Promise.all(names.map(async (n, i) => { const g = await loader.loadAsync(`/models/${dir}/${n}.glb`); g.scene.position.x = (i - (names.length - 1) / 2) * 3.4; g.scene.rotation.y = 1.15; scene.add(g.scene); }));
+renderer.render(scene, camera);
+window.ready = true;
+</script></body></html>

@@ -1,0 +1,12 @@
+[
+ { "name": "car-sedan", "prompt": "Modern European family sedan car, realistic proportions, glossy paint, chrome trim, game asset, centered, no background", "faces": 40000 },
+ { "name": "car-suv", "prompt": "Modern compact electric SUV car like a Tesla Model Y, realistic, game asset", "faces": 40000 },
+ { "name": "car-taxi", "prompt": "Black Oslo taxi, Tesla Model 3 style electric sedan with yellow roof taxi sign, realistic, game asset", "faces": 40000 },
+ { "name": "car-van", "prompt": "White modern delivery van, Volkswagen Transporter style, realistic, game asset", "faces": 40000 },
+ { "name": "bus-ruter", "prompt": "Red Ruter Oslo city bus, low-floor articulated electric bus, large windows, realistic, game asset", "faces": 60000 },
+ { "name": "tram-oslo", "prompt": "Oslo city tram CAF Urbos SL18, dark blue and grey, low-floor articulated tram, realistic, game asset", "faces": 60000 },
+ { "name": "bench-oslo", "prompt": "Scandinavian city park bench, dark green steel frame with wooden slats, realistic, game asset", "faces": 8000 },
+ { "name": "streetlight-oslo", "prompt": "Modern Oslo street lamp post, slim dark grey pole with flat round LED head, realistic, game asset", "faces": 6000 },
+ { "name": "bin-oslo", "prompt": "Oslo city street rubbish bin, dark green metal with lid, realistic, game asset", "faces": 6000 },
+ { "name": "shelter-ruter", "prompt": "Ruter Oslo bus stop shelter, glass and dark steel frame, bench inside, advertising panel at one end, realistic, game asset", "faces": 15000 }
+]

@@ -1,0 +1,44 @@
+[
+ {
+  "name": "cars/sedan",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern premium European sedan car, BMW 5 Series style, deep metallic blue paint, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ },
+ {
+  "name": "cars/suv",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern compact electric SUV, Tesla Model Y style, pearl white paint, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ },
+ {
+  "name": "cars/taxi",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern electric sedan, Tesla Model 3 style, glossy solid black paint, small plain yellow taxi light box on the roof, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ },
+ {
+  "name": "cars/van",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern delivery van, Volkswagen Transporter T6 style, clean white paint, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ },
+ {
+  "name": "cars/police",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern estate car, Volkswagen Passat Variant style, plain solid white paint, slim blue light bar on the roof, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ },
+ {
+  "name": "cars/sports",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern sports coupe, Porsche 911 style, glossy red paint, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ },
+ {
+  "name": "cars/wagon",
+  "texture": "4k",
+  "faces": 80000,
+  "prompt": "Modern estate wagon, Volvo V60 style, metallic dark grey paint, roof rails, photorealistic, sharp clean details, crisp panel gaps and body lines, perfectly symmetrical, smooth glossy paint without noise, clean dark tinted glass, detailed headlights and red taillights, realistic proportions, no text, no letters, no logos, no decals, no stickers, no license plates, studio product render"
+ }
+]

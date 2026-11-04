@@ -1,0 +1,37 @@
+<!doctype html><html><body style="margin:0;background:#fff">
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+// A scooter rider in the game's riding pose (?arm=-0.84&out=0.03&fore=-0.08 to try others), side
+// and three-quarter views.
+import * as THREE from 'three';
+import { buildPerson, posePerson } from '/person.js';
+import { scooter } from '/micromobility.js';
+const q = new URLSearchParams(location.search), arm = +(q.get('arm') ?? -0.84), out = +(q.get('out') ?? 0.03), fore = +(q.get('fore') ?? -0.08);
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setScissorTest(true);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xffffff);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x999999, 2.2));
+const root = new THREE.Group(), body = new THREE.Group(), p = buildPerson({}, 3);
+body.add(p.mesh);
+body.position.y = 0.17;
+body.rotation.x = 0.06;
+root.add(body, new THREE.Mesh(scooter('#1b9c8c'), new THREE.MeshLambertMaterial({ vertexColors: true })));
+scene.add(root);
+posePerson(p, 0, 0);
+p.bones.upperArmL.rotation.set(arm, 0, out);
+p.bones.upperArmR.rotation.set(arm, 0, -out);
+p.bones.forearmL.rotation.x = fore;
+p.bones.forearmR.rotation.x = fore;
+root.updateMatrixWorld(true);
+const camera = new THREE.PerspectiveCamera(30, (innerWidth / 2) / innerHeight, 0.1, 50);
+for (const [i, pos] of [[3.2, 1.1, 0.2], [2.2, 1.6, 2.4]].entries()) {
+  camera.position.set(...pos); camera.lookAt(0, 0.9, 0.15);
+  renderer.setViewport(i * innerWidth / 2, 0, innerWidth / 2, innerHeight);
+  renderer.setScissor(i * innerWidth / 2, 0, innerWidth / 2, innerHeight);
+  renderer.render(scene, camera);
+}
+window.ready = true;
+</script></body></html>

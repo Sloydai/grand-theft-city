@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- Car showroom for checking vehicle models: /tools/showroom.html?view=side|front|rear|three -->
+<html><body style="margin:0;background:#888">
+<script type="importmap">{ "imports": { "three": "../node_modules/three/build/three.module.js", "three/addons/": "../node_modules/three/examples/jsm/" } }</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { buildCar } from '../cars.js';
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xa9b8c6);
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const sun = new THREE.DirectionalLight(0xffffff, 2.2);
+sun.position.set(8, 14, 10);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { bottom: -12, left: -14, right: 14, top: 12 });
+scene.add(sun, new THREE.HemisphereLight(0xdfe8f0, 0x5a5348, 0.6));
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshStandardMaterial({ color: 0x6f7175, roughness: 0.9 }));
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+const kinds = [['sedan', 0xb8bcc0], ['suv', 0x1f3a93], ['sports', 0xc8102e], ['wagon', 0x2c3e50], ['police', 0xf2f2f2], ['taxi', 0x141414], ['van', 0xecf0f1]];
+const view = new URLSearchParams(location.search).get('view') || 'three';
+kinds.forEach(([kind, color], i) => {
+  const car = buildCar(kind, color);
+  car.group.position.set((i % 4) * 5.2 - 7.8, 0, Math.floor(i / 4) * -7);
+  car.group.rotation.y = view === 'side' ? Math.PI / 2 : view === 'rear' ? Math.PI : view === 'front' ? 0 : 0.6;
+  car.group.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  scene.add(car.group);
+});
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 200);
+camera.position.set(0, 4.5, 15);
+camera.lookAt(0, 0.4, -3);
+renderer.render(scene, camera);
+requestAnimationFrame(() => { renderer.render(scene, camera); document.title = 'ready'; });
+</script></body></html>

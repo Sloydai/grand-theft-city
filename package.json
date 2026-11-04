@@ -1,0 +1,34 @@
+{
+  "name": "grand-theft-city",
+  "version": "1.0.0",
+  "description": "A GTA-style browser game of any real city, built from OpenStreetMap with three.js and Sloyd models.",
+  "scripts": {
+    "serve": "node tools/serve.mjs 8777",
+    "build-city": "bash tools/build-city.sh"
+  },
+  "keywords": [
+    "game",
+    "three.js",
+    "openstreetmap",
+    "city",
+    "gta",
+    "sloyd",
+    "claude-skill"
+  ],
+  "author": "Sloyd (https://www.sloyd.ai)",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "clipper-lib": "^6.4.2",
+    "geotiff": "^3.0.5",
+    "jpeg-js": "^0.4.4",
+    "three": "^0.170.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sloydai/grand-theft-city.git"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

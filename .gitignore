@@ -1,0 +1,13 @@
+# Secrets (Sloyd API keys for tools/sloyd-generate.mjs)
+.env
+.env.*
+
+# Built city data (gigabytes of raw downloads and generated grids); see README
+data/
+
+# Build output, screenshots and local copies
+dist/
+models/cars-4096/
+node_modules/
+shots/
+.DS_Store
