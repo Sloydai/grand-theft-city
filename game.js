@@ -4588,6 +4588,8 @@ function frame(now) {
   if (!started) {
     view.yaw += dt * 0.08;
     updateCamera(dt);
+    // (Cars pick their detail by camera distance in sync(), which doesn't run here.)
+    for (const v of vehicles) v.mesh.setDistance(Math.hypot(v.x - camera.position.x, v.z - camera.position.z));
     renderer.render(scene, camera);
     return;
   }
