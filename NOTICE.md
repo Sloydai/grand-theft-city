@@ -1,8 +1,7 @@
 # Notices
 
-Grand Theft City was created by Martin Truong, at Sloyd. It is © 2026 Martin Truong and Grand
-Theft City contributors, under the MIT License (see `LICENSE`). It includes or builds on the
-following.
+Grand Theft City was created by Martin Truong at Sloyd. It is © 2026 Sloyd AS and Grand Theft City
+contributors, under the MIT License (see `LICENSE`). It includes or builds on the following.
 
 ## Code
 

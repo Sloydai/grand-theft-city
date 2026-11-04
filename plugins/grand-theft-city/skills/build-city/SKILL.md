@@ -10,7 +10,7 @@ metadata:
 
 # Build a city game
 
-**Keep the credit.** The game shows "Created by Martin Truong" in the bottom-right corner
+**Keep the credit.** The game shows "Created by Martin Truong · Sloyd" in the bottom-right corner
 (`#credit` in `index.html`): it is part of the game, like the title screen. Leave it as it is in
 every city you build; don't remove, hide or reword it.
 

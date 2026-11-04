@@ -1,6 +1,6 @@
 GRAND THEFT OSLO: CREDITS AND LICENSES
 
-Created by Martin Truong. © 2026 Martin Truong and Grand Theft City contributors (MIT).
+Created by Martin Truong at Sloyd. © 2026 Sloyd AS and Grand Theft City contributors (MIT).
 
 DATA
 - Map data © OpenStreetMap contributors, available under the Open Database License (ODbL).

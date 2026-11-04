@@ -15,7 +15,7 @@
     "sloyd",
     "claude-skill"
   ],
-  "author": "Martin Truong <martin@sloyd.ai> (https://www.sloyd.ai)",
+  "author": "Martin Truong <martin@sloyd.ai> (Sloyd AS, https://www.sloyd.ai)",
   "license": "MIT",
   "type": "module",
   "dependencies": {

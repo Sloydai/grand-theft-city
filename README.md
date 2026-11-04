@@ -34,7 +34,7 @@ Open http://localhost:8777 and click to play. A desktop browser with a graphics 
 
 | City | Play | Status | Map data | Built by |
 |---|---|---|---|---|
-| Oslo, Norway | `bash tools/get-city-data.sh oslo` | playable | OpenStreetMap, Kartverket elevation, NVDB road detail, Oslo Bysykkel | Martin Truong |
+| Oslo, Norway | `bash tools/get-city-data.sh oslo` | playable | OpenStreetMap, Kartverket elevation, NVDB road detail, Oslo Bysykkel | Martin Truong (Sloyd) |
 
 Built a city? Add a row (and its `cities/<id>/city.json`) in a pull request, with your name, and
 publish its data with `tools/release-city-data.sh`.
@@ -148,8 +148,9 @@ Making new models from text prompts with the Sloyd API: put your keys in `.env` 
 
 ## Licence and credits
 
-MIT (see [LICENSE](LICENSE)), © 2026 Martin Truong and Grand Theft City contributors. The game
-shows who started it in the corner; please keep that credit in what you build. Third-party code,
+MIT (see [LICENSE](LICENSE)), © 2026 Sloyd AS and Grand Theft City contributors. Created by
+Martin Truong at Sloyd: the game shows this in the corner; please keep that credit in what you
+build. Third-party code,
 the map data sources you must credit when sharing a built city, and trademarks are listed in
 [NOTICE.md](NOTICE.md).
 

@@ -2,7 +2,7 @@
   "name": "grand-theft-city",
   "description": "Make a GTA-style browser game of any real city, from OpenStreetMap, three.js and Sloyd models.",
   "owner": {
-    "name": "Martin Truong",
+    "name": "Sloyd AS",
     "email": "martin@sloyd.ai",
     "url": "https://www.sloyd.ai"
   },
